@@ -1,0 +1,135 @@
+ASSIGNMENT#3
+
+    - To find
+
+    Get all docs: db.<collection>.find()
+    Get one doc: db.<collection>.findOne()
+    To match a specific value: db.<collection>.find({<field1>:<value1>,<field2>:<value2>})
+                               db.<collection>.find({ $or: [<field>:<value1><field>:<value2>]})
+    Checking for multiple values of same field: db.<collection>.find({<field>: {$in [<value>, <value>]}})
+    Including/excluding document fields: db.<collection>.find({<field1>:<value>}, {<field2>: 0})
+                                         db.<collection>.find({<field>:<value>}, {<field2>: 1})
+    Find documents with or w/o field: db.<collection>.find({<field>: { $exists: true}})
+
+
+    - To update
+
+    db.<collection>.update({<field1>:<value1>}, //all docs in which field = value
+    {$set: {<field2>:<value2>}}, //set field to value
+    {multi:true} )//update multiple docs
+
+    To remove a field: db.<collection>.update({<field>:<value>},{ $unset: { <field>: 1}})
+    Replace all field-value pairs: db.<collection>.update({<field>:<value>},{ <field>:<value>, <field>:<value>})
+
+
+    - To delete
+
+    Remove all records where field = value: db.<collection>.remove({<field>:<value>}) 
+    Only remove first document: db.<collection>.remove({<field>:<value>}, true)
+
+
+
+db.EduTech.insertMany( 
+        [
+        {
+          student_name: "Tanay",
+          course: [
+            {
+              subject: "English",
+              sessions: 20,
+              assignments: 4
+            },
+            {
+              subject: "Maths",
+              sessions: 40,
+              assignments: 6
+            },
+            {
+              subject: "Physics",
+              sessions: 15,
+              assignments: 2
+            },
+            {
+              subject: "Chemistry",
+              sessions: 15,
+              assignments: 2
+            }
+          ]
+        },
+        {
+          student_name: "Jia",
+          course: [
+            {
+              subject: "English",
+              sessions: 20,
+              assignments: 4
+            },
+            {
+              subject: "Maths",
+              sessions: 30,
+              assignments: 6
+            },
+            {
+              subject: "Physics",
+              sessions: 10,
+              assignments: 2
+            },
+            {
+              subject: "Chemistry",
+              sessions: 15,
+              assignments: 2
+            }
+          ]
+        },
+        {
+          student_name: "Nitin",
+          course: [
+            {
+              subject: "English",
+              sessions: 20,
+              assignments: 4
+            },
+            {
+              subject: "Maths",
+              sessions: 40,
+              assignments: 6
+            },
+            {
+              subject: "Physics",
+              sessions: 20,
+              assignments: 2
+            },
+            {
+              subject: "Chemistry",
+              sessions: 10,
+              assignments: 2
+            }
+          ]
+        },
+        {
+          student_name: "Nilesh",
+          course: [
+            {
+              subject: "English",
+              sessions: 25,
+              assignments: 5
+            },
+            {
+              subject: "Maths",
+              sessions: 30,
+              assignments: 4
+            },
+            {
+              subject: "Physics",
+              sessions: 15,
+              assignments: 2
+            },
+            {
+              subject: "Chemistry",
+              sessions: 10,
+              assignments: 3
+            }
+          ]
+        }
+        ] 
+      )
